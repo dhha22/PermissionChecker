@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private PermissionListener permissionListener = new PermissionListener() {
         @Override
         public void denyPermission(List<String> permissions) {
-            for(String permission : permissions){
-                Log.d(TAG, "deny permission: " + permission);
-            }
             Toast.makeText(MainActivity.this, "deny permission", Toast.LENGTH_SHORT).show();
         }
 
