@@ -1,7 +1,7 @@
 # PermissionChecker
 
 ## Including in your project
-You must download the [permission-checker.aar](https://github.com/dhha22/BindAdapter/raw/master/bind-adapter.aar) and save in your project `app/libs` folder.
+You must download the [permission-checker.aar](https://github.com/dhha22/PermissionChecker/raw/efdf50ab82481deb309e5d0b3b37fbefa10dc470/permission-checker.aar) and save in your project `app/libs` folder.
 
 and you just need to add the following dependency to your `build.gradle`.
 ```java
