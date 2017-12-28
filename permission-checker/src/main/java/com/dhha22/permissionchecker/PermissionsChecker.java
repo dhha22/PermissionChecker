@@ -13,26 +13,27 @@ import java.util.ArrayList;
  * Created by DavidHa on 2017. 10. 20..
  */
 
-public class PermissionsChecker implements Serializable {
+public class PermissionsChecker {
     private final Context context;
     private final ArrayList<String> permissionList = new ArrayList<>();
 
+    private PermissionsChecker() {
+        this.context = null;
+    }
 
     public PermissionsChecker(Context context) {
         this.context = context;
     }
 
-    public PermissionsChecker setListener(PermissionListener listener){
+    public PermissionsChecker setListener(PermissionListener listener) {
         PermissionCheckerActivity.listener = listener;
         return this;
     }
 
-
-    public PermissionsChecker addPermission(String permission){
+    public PermissionsChecker addPermission(String permission) {
         permissionList.add(permission);
         return this;
     }
-
 
     public void checkPermission() {
         Intent intent = new Intent(context, PermissionCheckerActivity.class);

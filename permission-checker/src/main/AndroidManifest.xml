@@ -8,7 +8,8 @@
         android:supportsRtl="true">
         <activity
             android:name=".PermissionCheckerActivity"
-            android:theme="@style/AppTheme.Translucent" />
+            android:theme="@style/AppTheme.Translucent"
+            android:launchMode="singleTask"/>
     </application>
 
 </manifest>

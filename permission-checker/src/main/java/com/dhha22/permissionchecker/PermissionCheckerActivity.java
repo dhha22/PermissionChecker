@@ -21,7 +21,7 @@ import java.util.List;
  * Created by DavidHa on 2017. 10. 20..
  */
 
-public class PermissionCheckerActivity extends Activity {
+public final class PermissionCheckerActivity extends Activity {
     private static final String TAG = "PermissionCheckerActivi";
     private static final int PERMISSION_REQUEST_CODE = 0;
     private ArrayList<String> permissionList;
@@ -36,7 +36,9 @@ public class PermissionCheckerActivity extends Activity {
             requestPermissions();
         } else {
             Log.d(TAG, "grant permission");
-            listener.grantPermission();
+            if (listener != null) {
+                listener.grantPermission();
+            }
             finish();
         }
     }
@@ -48,11 +50,15 @@ public class PermissionCheckerActivity extends Activity {
         List<String> denyPermissions = getDenyPermissions(permissions, grantResults);
         if (requestCode == PERMISSION_REQUEST_CODE && denyPermissions.size() == 0) {
             Log.d(TAG, "grant permission");
-            listener.grantPermission();
+            if (listener != null) {
+                listener.grantPermission();
+            }
             finish();
         } else {
             Log.d(TAG, "deny permission");
-            listener.denyPermission(denyPermissions);
+            if (listener != null) {
+                listener.denyPermission(denyPermissions);
+            }
             finish();
         }
     }
