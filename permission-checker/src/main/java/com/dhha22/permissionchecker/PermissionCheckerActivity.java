@@ -43,7 +43,6 @@ public final class PermissionCheckerActivity extends Activity {
         }
     }
 
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         Log.d(TAG, "on request permission result");
@@ -94,6 +93,7 @@ public final class PermissionCheckerActivity extends Activity {
     @Override
     protected void onDestroy() {
         listener = null;
+        Log.d(TAG, "on destroy");
         super.onDestroy();
     }
 }
