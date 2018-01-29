@@ -92,7 +92,6 @@ public final class PermissionCheckerActivity extends Activity {
 
     @Override
     protected void onDestroy() {
-        listener = null;
         Log.d(TAG, "on destroy");
         super.onDestroy();
     }

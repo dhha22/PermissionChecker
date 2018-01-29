@@ -6,7 +6,6 @@ import android.net.Uri;
 
 import com.dhha22.permissionchecker.listener.PermissionListener;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -16,6 +15,7 @@ import java.util.ArrayList;
 public class PermissionsChecker {
     private final Context context;
     private final ArrayList<String> permissionList = new ArrayList<>();
+    private PermissionListener permissionListener;
 
     private PermissionsChecker() {
         this.context = null;
@@ -26,7 +26,7 @@ public class PermissionsChecker {
     }
 
     public PermissionsChecker setListener(PermissionListener listener) {
-        PermissionCheckerActivity.listener = listener;
+        permissionListener = listener;
         return this;
     }
 
@@ -36,15 +36,20 @@ public class PermissionsChecker {
     }
 
     public void checkPermission() {
-        Intent intent = new Intent(context, PermissionCheckerActivity.class);
-        intent.putStringArrayListExtra("permissionList", permissionList);
-        context.startActivity(intent);
+        if(context != null) {
+            Intent intent = new Intent(context, PermissionCheckerActivity.class);
+            intent.putStringArrayListExtra("permissionList", permissionList);
+            PermissionCheckerActivity.listener = permissionListener;
+            context.startActivity(intent);
+        }
     }
 
     public void goAppSetting() {
-        Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        intent.setData(Uri.parse("package:" + context.getPackageName()));
-        context.startActivity(intent);
+        if(context != null) {
+            Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+            intent.setData(Uri.parse("package:" + context.getPackageName()));
+            context.startActivity(intent);
+        }
     }
 
 }
