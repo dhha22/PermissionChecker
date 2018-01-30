@@ -14,7 +14,7 @@ allprojects {
 }
 
 dependencies {
-    compile 'com.dhha22.permissionchecker:permission-checker:0.1.0-beta@aar'
+    compile 'com.dhha22.permissionchecker:permission-checker:0.1.1-beta@aar'
 }
 
 ```
