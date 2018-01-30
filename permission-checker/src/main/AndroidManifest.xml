@@ -10,7 +10,7 @@
             android:name=".PermissionCheckerActivity"
             android:theme="@style/AppTheme.Translucent"
             android:launchMode="singleInstance"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="unspecified" />
     </application>
 
 </manifest>
